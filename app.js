@@ -21,4 +21,6 @@ app.get('/', (req, res) => {
   res.send('Hello World')
 })
 
+app.use('/book', require('./routes/book'))
+
 app.listen(3000)
