@@ -15,6 +15,7 @@ const Record = require('./models/record')
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
@@ -28,11 +29,27 @@ db.once('open', () => {
 })
 
 app.get('/', (req, res) => {
-  Record.find({}, null, { skip: 0, limit: 5 })
+  Record.find({})
     .sort({ name: 'desc' })
     .exec((err, record) => {
       if (err) return console.error(err)
-      res.render('index', { record })
+      res.render('index', { style: 'index.css', record })
+    })
+})
+
+app.get('/search', (req, res) => {
+  let keyword = req.query.keyword
+  let month = req.query.month
+  Record.find({
+    $or: [
+      { category: { $regex: keyword, $options: 'i' } },
+      { date: { $regex: keyword } }
+    ]
+  })
+    .sort({ _id: 1 })
+    .exec((err, record) => {
+      if (err) console.error(err)
+      res.render('index', { style: 'index.css', record, keyword, month })
     })
 })
 

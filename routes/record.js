@@ -11,7 +11,7 @@ router.post('/new', (req, res) => {
   const { name, date, category, cost } = req.body
   const formattedDate = moment(date).format('YYYY / MM / DD')
   const newRecord = new Record({
-    date: formattedDate,
+    date,
     name,
     category,
     cost
@@ -27,11 +27,26 @@ router.get('/:id/detail', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  res.send('編輯頁面')
+  Record.findById(req.params.id, (err, record) => {
+    if (err) return console.error(err)
+    res.render('edit', { record })
+  })
 })
 
 router.put('/:id/edit', (req, res) => {
-  res.send('執行編輯')
+  const { name, date, category, cost } = req.body
+  const formattedDate = moment(date).format('YYYY / MM / DD')
+  Record.findById(req.params.id, (err, record) => {
+    if (err) console.error(err)
+    record.name = name
+    record.date = date
+    record.category = category
+    record.cost = cost
+    record.save(err => {
+      if (err) return console.error(err)
+      res.redirect('/')
+    })
+  })
 })
 
 router.delete('/:id/delete', (req, res) => {
