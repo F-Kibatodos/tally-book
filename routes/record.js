@@ -1,12 +1,25 @@
 const express = require('express')
 const router = express.Router()
+const Record = require('../models/record')
+const moment = require('moment')
 
 router.get('/new', (req, res) => {
-  res.send('新增支出頁面')
+  res.render('new')
 })
 
 router.post('/new', (req, res) => {
-  res.send('執行新增')
+  const { name, date, category, cost } = req.body
+  const formattedDate = moment(date).format('YYYY / MM / DD')
+  const newRecord = new Record({
+    date: formattedDate,
+    name,
+    category,
+    cost
+  })
+  newRecord.save(err => {
+    if (err) return console.error(err)
+    res.redirect('/')
+  })
 })
 
 router.get('/:id/detail', (req, res) => {

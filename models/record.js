@@ -10,8 +10,8 @@ const bookSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    required: true
   },
   cost: {
     type: Number,
@@ -19,4 +19,4 @@ const bookSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Book', bookSchema)
+module.exports = mongoose.model('Record', bookSchema)

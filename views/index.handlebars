@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center mx-auto mt-3">
+      <div class="dropdown mr-3">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          月份
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">一月</a>
+          <a class="dropdown-item" href="#">二月</a>
+          <a class="dropdown-item" href="#">三月</a>
+          <a class="dropdown-item" href="#">四月</a>
+          <a class="dropdown-item" href="#">五月</a>
+          <a class="dropdown-item" href="#">六月</a>
+          <a class="dropdown-item" href="#">七月</a>
+          <a class="dropdown-item" href="#">八月</a>
+          <a class="dropdown-item" href="#">九月</a>
+          <a class="dropdown-item" href="#">十月</a>
+          <a class="dropdown-item" href="#">十一月</a>
+          <a class="dropdown-item" href="#">十二月</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          類別
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#"><i class="fas fa-home"></i> 家居物業</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-shuttle-van"></i> 交通出行</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-grin-beam"></i> 休閒娛樂</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-utensils"></i> 餐飲食品</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-pen"></i> 其他</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="list-group">
+  {{#each record}}
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
+        <h4 class="d-inline" style="vertical-align: middle;">{{this.name}}</h4>
+        <h4>{{this.date}}</h4>
+      </div>
+      <div class="col-auto">
+        <a href="/todos/{{this.id}}" class="btn btn-secondary">detail</a>
+        <a href="/todos/{{this.id}}/edit?_method=PUT" class="btn btn-success">edit</a>
+        <form action="/todos/{{this.id}}/delete?_method=DELETE" method="POST" style="display: inline-block;">
+          <button type="submit" class="btn btn-danger">delete</button>
+        </form>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>
+<a href="/record/new" class="btn btn-primary">新增</a>
