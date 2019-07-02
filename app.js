@@ -55,4 +55,6 @@ app.get('/search', (req, res) => {
 
 app.use('/record', require('./routes/record'))
 
+app.use('/user', require('./routes/user'))
+
 app.listen(3000)
