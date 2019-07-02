@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/book', {
@@ -13,6 +14,7 @@ const Record = require('./models/record')
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
