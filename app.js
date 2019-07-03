@@ -36,7 +36,7 @@ app.use(passport.session())
 // 載入 Passport config
 require('./config/passport')(passport)
 
-// 登入後可以取得使用者的資訊方便我們在 view 裡面直接使用
+// 做一個 middleware，登入後可以取得使用者的資訊方便我們在 view 裡面直接使用
 app.use((req, res, next) => {
   res.locals.user = req.user
   next()
@@ -48,15 +48,6 @@ db.on('error', () => {
 
 db.once('open', () => {
   console.log('db connected')
-})
-
-app.get('/', (req, res) => {
-  Record.find({})
-    .sort({ name: 'desc' })
-    .exec((err, record) => {
-      if (err) return console.error(err)
-      res.render('index', { style: 'index.css', record })
-    })
 })
 
 app.get('/search', (req, res) => {
@@ -74,6 +65,8 @@ app.get('/search', (req, res) => {
       res.render('index', { style: 'index.css', record, keyword, month })
     })
 })
+
+app.use('/', require('./routes/home'))
 
 app.use('/record', require('./routes/record'))
 

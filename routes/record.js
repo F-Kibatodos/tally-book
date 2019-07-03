@@ -2,12 +2,13 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
 const moment = require('moment')
+const { authenticated } = require('../config/auth')
 
 router.get('/new', (req, res) => {
   res.render('new')
 })
 
-router.post('/new', (req, res) => {
+router.post('/new', authenticated, (req, res) => {
   const { name, date, category, amount } = req.body
   const formattedDate = moment(date).format('YYYY / MM / DD')
   const newRecord = new Record({
@@ -22,18 +23,14 @@ router.post('/new', (req, res) => {
   })
 })
 
-router.get('/:id/detail', (req, res) => {
-  res.send('詳細支出情形')
-})
-
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authenticated, (req, res) => {
   Record.findById(req.params.id, (err, record) => {
     if (err) return console.error(err)
     res.render('edit', { record })
   })
 })
 
-router.put('/:id/edit', (req, res) => {
+router.put('/:id/edit', authenticated, (req, res) => {
   const { name, date, category, amount } = req.body
   const formattedDate = moment(date).format('YYYY / MM / DD')
   Record.findById(req.params.id, (err, record) => {
@@ -49,7 +46,7 @@ router.put('/:id/edit', (req, res) => {
   })
 })
 
-router.delete('/:id/delete', (req, res) => {
+router.delete('/:id/delete', authenticated, (req, res) => {
   Record.findById(req.params.id, (err, record) => {
     if (err) return console.error(err)
     record.remove(err => {
