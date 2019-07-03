@@ -13,16 +13,17 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" href="/">記帳本</a>
-      {{#if isAuthenticated}}
-      <a href="/user/logout" class="btn btn-outline-primary">Logout</a>
-      {{else}}
-      <a href="/user/login" class="btn btn-outline-primary">Login</a>
-      {{/if}}
-    </nav>
-
+  <header class="bg-light">
+    <div class="container">
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" href="/">記帳本</a>
+        {{#if isAuthenticated}}
+        <a href="/user/logout" class="btn btn-outline-primary">登出</a>
+        {{else}}
+        <a href="/user/login" class="btn btn-outline-primary">登入</a>
+        {{/if}}
+      </nav>
+    </div>
   </header>
 
   <main>

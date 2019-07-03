@@ -5,7 +5,7 @@ const moment = require('moment')
 const { authenticated } = require('../config/auth')
 
 // 新增頁面
-router.get('/new', (req, res) => {
+router.get('/new', authenticated, (req, res) => {
   res.render('new')
 })
 
