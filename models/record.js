@@ -13,7 +13,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  cost: {
+  amount: {
     type: Number,
     required: true
   }

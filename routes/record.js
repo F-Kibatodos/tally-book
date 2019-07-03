@@ -8,13 +8,13 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
-  const { name, date, category, cost } = req.body
+  const { name, date, category, amount } = req.body
   const formattedDate = moment(date).format('YYYY / MM / DD')
   const newRecord = new Record({
     date,
     name,
     category,
-    cost
+    amount
   })
   newRecord.save(err => {
     if (err) return console.error(err)
@@ -34,14 +34,14 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id/edit', (req, res) => {
-  const { name, date, category, cost } = req.body
+  const { name, date, category, amount } = req.body
   const formattedDate = moment(date).format('YYYY / MM / DD')
   Record.findById(req.params.id, (err, record) => {
     if (err) console.error(err)
     record.name = name
     record.date = date
     record.category = category
-    record.cost = cost
+    record.amount = amount
     record.save(err => {
       if (err) return console.error(err)
       res.redirect('/')
