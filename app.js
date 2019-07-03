@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const session = require('express-session')
@@ -74,5 +78,7 @@ app.use('/', require('./routes/home'))
 app.use('/record', require('./routes/record'))
 
 app.use('/user', require('./routes/user'))
+
+app.use('/auth', require('./routes/auths'))
 
 app.listen(3000)
