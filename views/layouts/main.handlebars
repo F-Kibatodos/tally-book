@@ -14,8 +14,13 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light justify-content-between">
       <a class="navbar-brand" href="/">記帳本</a>
+      {{#if isAuthenticated}}
+      <a href="/user/logout" class="btn btn-outline-primary">Logout</a>
+      {{else}}
+      <a href="/user/login" class="btn btn-outline-primary">Login</a>
+      {{/if}}
     </nav>
 
   </header>
