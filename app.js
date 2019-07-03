@@ -25,7 +25,9 @@ app.set('view engine', 'handlebars')
 // 使用 session
 app.use(
   session({
-    secret: 'how much do you left'
+    secret: 'how much do you left',
+    resave: 'false',
+    saveUninitialized: 'false'
   })
 )
 
