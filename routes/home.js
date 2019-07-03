@@ -4,7 +4,7 @@ const Record = require('../models/record')
 const { authenticated } = require('../config/auth')
 
 router.get('/', authenticated, (req, res) => {
-  Record.find({})
+  Record.find({ userId: req.user._id })
     .sort({ name: 'desc' })
     .exec((err, record) => {
       if (err) return console.error(err)
