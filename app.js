@@ -3,6 +3,8 @@ const app = express()
 
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
+const session = require('express-session')
+const passport = require('passport')
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/book', {
@@ -19,6 +21,26 @@ app.use(express.static('public'))
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+
+// 使用 session
+app.use(
+  session({
+    secret: 'how much do you left'
+  })
+)
+
+// 使用 Passport
+app.use(passport.initialize())
+app.use(passport.session())
+
+// 載入 Passport config
+require('./config/passport')(passport)
+
+// 登入後可以取得使用者的資訊方便我們在 view 裡面直接使用
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  next()
+})
 
 db.on('error', () => {
   console.log('db not connected')
