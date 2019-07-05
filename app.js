@@ -61,22 +61,6 @@ db.once('open', () => {
   console.log('db connected')
 })
 
-app.get('/search', (req, res) => {
-  let keyword = req.query.keyword
-  let month = req.query.month
-  Record.find({
-    $or: [
-      { category: { $regex: keyword, $options: 'i' } },
-      { date: { $regex: keyword } }
-    ]
-  })
-    .sort({ _id: 1 })
-    .exec((err, record) => {
-      if (err) console.error(err)
-      res.render('index', { style: 'index.css', record, keyword, month })
-    })
-})
-
 app.use('/', require('./routes/home'))
 
 app.use('/record', require('./routes/record'))

@@ -7,7 +7,9 @@ const { check, validationResult } = require('express-validator')
 
 // 登入頁面
 router.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login', {
+    error: req.flash('error')
+  })
 })
 
 // 登入檢查
@@ -15,7 +17,8 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     // 使用 passport 認證
     successRedirect: '/',
-    failureRedirect: '/user/login'
+    failureRedirect: '/user/login',
+    failureFlash: true
   })(req, res, next)
 })
 
@@ -85,7 +88,7 @@ router.post(
               newUser
                 .save()
                 .then(user => {
-                  res.redirect('/users/login')
+                  res.redirect('/user/login')
                 })
                 .catch(err => {
                   console.log(err)

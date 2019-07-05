@@ -1,41 +1,50 @@
 <div class="container my-3">
+  {{> indexMsg}}
   <div class="row">
     <div class="d-flex justify-content-center mx-auto">
+
+      <!--     月份篩選    -->
       <div class="dropdown mr-3">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          月份
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="/search?keyword=-01-">一月</a>
-          <a class="dropdown-item" href="#">二月</a>
-          <a class="dropdown-item" href="#">三月</a>
-          <a class="dropdown-item" href="#">四月</a>
-          <a class="dropdown-item" href="#">五月</a>
-          <a class="dropdown-item" href="/search?keyword=-06-">六月</a>
-          <a class="dropdown-item" href="/search?keyword=-07-">七月</a>
-          <a class="dropdown-item" href="#">八月</a>
-          <a class="dropdown-item" href="#">九月</a>
-          <a class="dropdown-item" href="#">十月</a>
-          <a class="dropdown-item" href="#">十一月</a>
-          <a class="dropdown-item" href="#">十二月</a>
+        <button class="btn btn-secondary dropdown-toggle month-sort-menu" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{displayMonth}}
+        </button>
+        <div class="dropdown-menu month" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=">全部</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-01-">一月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-02-">二月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-03-">三月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-04-">四月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-05-">五月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-06-">六月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-07-">七月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-08-">八月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-09-">九月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-10-">十月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-11-">十一月</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-12-">十二月</a>
         </div>
       </div>
+
+      <!--    類別篩選    -->
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          類別
+          {{displayKeyword}}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="/search?keyword=家居物業"><i class="fas fa-home"></i> 家居物業</a>
-          <a class="dropdown-item" href="/search?keyword=交通出行"><i class="fas fa-shuttle-van"></i> 交通出行</a>
-          <a class="dropdown-item" href="/search?keyword=休閒娛樂"><i class="fas fa-grin-beam"></i> 休閒娛樂</a>
-          <a class="dropdown-item" href="/search?keyword=餐飲食品"><i class="fas fa-utensils"></i> 餐飲食品</a>
-          <a class="dropdown-item" href="/search?keyword=其他"><i class="fas fa-pen"></i> 其他</a>
+          <a class="dropdown-item" href="/?keyword=&month={{month}}">全部</a>
+          <a class="dropdown-item" href="/?keyword=家居物業&month={{month}}"><i class="fas fa-home"></i> 家居物業</a>
+          <a class="dropdown-item" href="/?keyword=交通出行&month={{month}}"><i class="fas fa-shuttle-van"></i> 交通出行</a>
+          <a class="dropdown-item" href="/?keyword=休閒娛樂&month={{month}}"><i class="fas fa-grin-beam"></i> 休閒娛樂</a>
+          <a class="dropdown-item" href="/?keyword=餐飲食品&month={{month}}"><i class="fas fa-utensils"></i> 餐飲食品</a>
+          <a class="dropdown-item" href="/?keyword=其他&month={{month}}"><i class="fas fa-pen"></i> 其他</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!--    顯示金額    -->
   <div class="mt-4">
     <h6 class="text-center">總金額：</h6>
     <h1 class="text-center sum">0</h1>

@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "name": "廣志",
+      "email": "hiroshi@nohara.com",
+      "password": "12345678"
+    },
+    {
+      "name": "美冴",
+      "email": "misae@nohara.com",
+      "password": "12345678"
+    }
+  ]
+}
