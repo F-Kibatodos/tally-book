@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-6 m-auto">
       <div class="card card-body mt-4">
+        {{> new-edit}}
         <form action="/record/{{record.id}}/edit?_method=PUT" method="POST">
           <div class="row">
             <span class="col-sm-3"><small>*必填欄位</small></span>
@@ -38,7 +39,7 @@
           <div class="form-group row mb-5">
             <label for="amount" class="col-sm-3 col-form-label">金額*：</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="amount" placeholder="支出金額" name="amount"
+              <input type="number" class="form-control" id="amount" placeholder="只接受阿拉伯數字" name="amount"
                 value="{{record.amount}}" required>
             </div>
           </div>

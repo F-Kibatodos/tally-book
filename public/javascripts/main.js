@@ -27,3 +27,7 @@ for (let cost of costs) {
   total += parseInt(cost.innerHTML)
 }
 sum.innerHTML = total
+if (parseInt(sum.innerHTML) < 10000) sum.style.color = 'green'
+else if (parseInt(sum.innerHTML) >= 10000 && parseInt(sum.innerHTML) < 20000)
+  sum.style.color = 'orange'
+else if (parseInt(sum.innerHTML) >= 20000) sum.style.color = 'red'

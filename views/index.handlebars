@@ -5,10 +5,10 @@
 
       <!--     月份篩選    -->
       <div class="dropdown mr-3">
-        <button class="btn btn-secondary dropdown-toggle month-sort-menu" href="#" role="button" id="dropdownMenuLink"
+        <a class="btn btn-secondary dropdown-toggle month-sort-menu" href="#" role="button" id="dropdownMenuLink"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{displayMonth}}
-        </button>
+          {{newDisplayMonth}}
+        </a>
         <div class="dropdown-menu month" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="/?keyword={{keyword}}&month=">全部</a>
           <a class="dropdown-item" href="/?keyword={{keyword}}&month=-01-">一月</a>
@@ -27,7 +27,7 @@
       </div>
 
       <!--    類別篩選    -->
-      <div class="dropdown">
+      <div class="dropdown mr-3">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           {{displayKeyword}}
@@ -41,8 +41,22 @@
           <a class="dropdown-item" href="/?keyword=其他&month={{month}}"><i class="fas fa-pen"></i> 其他</a>
         </div>
       </div>
+      <div class="dropdown">排序：
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          {{newDisplaySort}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month={{month}}&sortKey=date&sortValue=-1">日期(新到舊)</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month={{month}}&sortKey=date&sortValue=1">日期(舊到新)</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month={{month}}&sortKey=amount&sortValue=-1">花費(多到少)</a>
+          <a class="dropdown-item" href="/?keyword={{keyword}}&month={{month}}&sortKey=amount&sortValue=1">花費(少到多)</a>
+        </div>
+      </div>
     </div>
   </div>
+
+
 
   <!--    顯示金額    -->
   <div class="mt-4">
@@ -73,7 +87,8 @@
         <td id="cost">{{this.amount}}</td>
         <td class="d-flex justify-content-end">
           <a href="/record/{{this.id}}/edit" class="btn btn-info mr-3">修改</a>
-          <form action="/record/{{this.id}}/delete?_method=DELETE" method="POST" style="display: inline-block;">
+          <form action="/record/{{this.id}}/delete?_method=DELETE" method="POST" style="display: inline-block;"
+            onsubmit="return confirm('確定喔，不要吃自己的帳喔')">
             <button type="submit" class="btn btn-danger">刪除</button>
           </form>
         </td>

@@ -2,23 +2,23 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
 const { authenticated } = require('../config/auth')
+const displayMonthMenu = require('../displayMonth')
+const displaySortMenu = require('../sort')
 
 router.get('/', authenticated, (req, res) => {
+  // 排序
+  const sort = {}
+  let sortKey = req.query.sortKey || 'date'
+  let sortValue = req.query.sortValue || '-1'
+  sort[sortKey] = sortValue
+  let displaySort
+  let newDisplaySort = displaySortMenu(sortKey, sortValue, displaySort)
+  // 查詢
   const keyword = req.query.keyword
   const month = req.query.month
+  // 讓查詢方法秀在 dropdown上
   let displayMonth = req.query.month
-  if (displayMonth === '-01-') displayMonth = '一月'
-  else if (displayMonth === '-02-') displayMonth = '二月'
-  else if (displayMonth === '-03-') displayMonth = '三月'
-  else if (displayMonth === '-04-') displayMonth = '四月'
-  else if (displayMonth === '-05-') displayMonth = '五月'
-  else if (displayMonth === '-06-') displayMonth = '六月'
-  else if (displayMonth === '-07-') displayMonth = '七月'
-  else if (displayMonth === '-08-') displayMonth = '八月'
-  else if (displayMonth === '-09-') displayMonth = '九月'
-  else if (displayMonth === '-10-') displayMonth = '十月'
-  else if (displayMonth === '-11-') displayMonth = '十一月'
-  else if (displayMonth === '-12-') displayMonth = '十二月'
+  let newDisplayMonth = displayMonthMenu(displayMonth)
   const findKeyword = new RegExp(keyword, 'i')
   const findMonth = new RegExp(month, 'g')
   Record.find({
@@ -28,7 +28,7 @@ router.get('/', authenticated, (req, res) => {
       { date: { $regex: findMonth } }
     ]
   })
-    .sort({ date: -1 })
+    .sort(sort)
     .exec((err, record) => {
       if (err) return console.error(err)
       res.render('index', {
@@ -36,8 +36,9 @@ router.get('/', authenticated, (req, res) => {
         record,
         keyword,
         month,
-        displayMonth: displayMonth || '月份(全部)',
-        displayKeyword: keyword || '分類(全部)'
+        newDisplayMonth: newDisplayMonth || '月份(全部)',
+        displayKeyword: keyword || '分類(全部)',
+        newDisplaySort: newDisplaySort
       })
     })
 })
