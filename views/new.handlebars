@@ -5,23 +5,23 @@
         {{> new-edit}}
         <form action="/record/new" method="POST">
           <div class="row">
-            <span class="col-sm-3"><small>*必填欄位</small></span>
+            <span class="col-sm-3"><small><span class="necessary">*</span>必填欄位</small></span>
             <h3 class="text-center col-sm-9">請輸入你的支出</h3>
           </div>
           <div class="form-group row mb-5">
-            <label for="name" class="col-sm-3 col-form-label">名稱*：</label>
+            <label for="name" class="col-sm-3 col-form-label">名稱<span class="necessary">*</span>：</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="name" placeholder="請勿空白" name="name" required>
             </div>
           </div>
           <div class="form-group row mb-5">
-            <label for="date" class="col-sm-3 col-form-label">日期*：</label>
+            <label for="date" class="col-sm-3 col-form-label">日期<span class="necessary">*</span>：</label>
             <div class="col-sm-9">
               <input type="date" class="form-control" id="date" name="date" required>
             </div>
           </div>
           <div class="form-group row mb-5">
-            <label class="col-sm-3 col-form-label" for="category">類別*：</label>
+            <label class="col-sm-3 col-form-label" for="category">類別<span class="necessary">*</span>：</label>
             <div class="col-sm-9">
               <select class="custom-select my-1 mr-sm-3" id="category" name="category" required>
                 <option selected>請選擇</option>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="form-group row mb-5">
-            <label for="amount" class="col-sm-3 col-form-label">金額*：</label>
+            <label for="amount" class="col-sm-3 col-form-label">金額<span class="necessary">*</span>：</label>
             <div class="col-sm-9">
               <input type="number" class="form-control" id="amount" placeholder="只接受阿拉伯數字" name="amount" min="1"
                 required>

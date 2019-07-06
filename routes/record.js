@@ -3,7 +3,7 @@ const router = express.Router()
 const Record = require('../models/record')
 const { authenticated } = require('../config/auth')
 const { check, validationResult } = require('express-validator')
-const inputvalidate = require('../validator')
+const inputvalidate = require('../recordValidator')
 
 // 新增頁面
 router.get('/new', authenticated, (req, res) => {

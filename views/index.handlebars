@@ -10,19 +10,32 @@
           {{newDisplayMonth}}
         </a>
         <div class="dropdown-menu month" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=">全部</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-01-">一月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-02-">二月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-03-">三月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-04-">四月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-05-">五月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-06-">六月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-07-">七月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-08-">八月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-09-">九月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-10-">十月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-11-">十一月</a>
-          <a class="dropdown-item" href="/?keyword={{keyword}}&month=-12-">十二月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=&sortKey={{sortKey}}&sortValue={{sortValue}}">全部</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-01-&sortKey={{sortKey}}&sortValue={{sortValue}}">一月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-02-&sortKey={{sortKey}}&sortValue={{sortValue}}">二月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-03-&sortKey={{sortKey}}&sortValue={{sortValue}}">三月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-04-&sortKey={{sortKey}}&sortValue={{sortValue}}">四月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-05-&sortKey={{sortKey}}&sortValue={{sortValue}}">五月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-06-&sortKey={{sortKey}}&sortValue={{sortValue}}">六月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-07-&sortKey={{sortKey}}&sortValue={{sortValue}}">七月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-08-&sortKey={{sortKey}}&sortValue={{sortValue}}">八月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-09-&sortKey={{sortKey}}&sortValue={{sortValue}}">九月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-10-&sortKey={{sortKey}}&sortValue={{sortValue}}">十月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-11-&sortKey={{sortKey}}&sortValue={{sortValue}}">十一月</a>
+          <a class="dropdown-item"
+            href="/?keyword={{keyword}}&month=-12-&sortKey={{sortKey}}&sortValue={{sortValue}}">十二月</a>
         </div>
       </div>
 
@@ -33,12 +46,17 @@
           {{displayKeyword}}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="/?keyword=&month={{month}}">全部</a>
-          <a class="dropdown-item" href="/?keyword=家居物業&month={{month}}"><i class="fas fa-home"></i> 家居物業</a>
-          <a class="dropdown-item" href="/?keyword=交通出行&month={{month}}"><i class="fas fa-shuttle-van"></i> 交通出行</a>
-          <a class="dropdown-item" href="/?keyword=休閒娛樂&month={{month}}"><i class="fas fa-grin-beam"></i> 休閒娛樂</a>
-          <a class="dropdown-item" href="/?keyword=餐飲食品&month={{month}}"><i class="fas fa-utensils"></i> 餐飲食品</a>
-          <a class="dropdown-item" href="/?keyword=其他&month={{month}}"><i class="fas fa-pen"></i> 其他</a>
+          <a class="dropdown-item" href="/?keyword=&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}">全部</a>
+          <a class="dropdown-item" href="/?keyword=家居物業&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}"><i
+              class="fas fa-home"></i> 家居物業</a>
+          <a class="dropdown-item" href="/?keyword=交通出行&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}"><i
+              class="fas fa-shuttle-van"></i> 交通出行</a>
+          <a class="dropdown-item" href="/?keyword=休閒娛樂&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}"><i
+              class="fas fa-grin-beam"></i> 休閒娛樂</a>
+          <a class="dropdown-item" href="/?keyword=餐飲食品&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}"><i
+              class="fas fa-utensils"></i> 餐飲食品</a>
+          <a class="dropdown-item" href="/?keyword=其他&month={{month}}&sortKey={{sortKey}}&sortValue={{sortValue}}"><i
+              class="fas fa-pen"></i> 其他</a>
         </div>
       </div>
       <div class="dropdown">排序：
@@ -59,8 +77,8 @@
 
 
   <!--    顯示金額    -->
-  <div class="mt-4">
-    <h6 class="text-center">總金額：</h6>
+  <div class="mt-4 d-flex justify-content-center align-items-end">
+    <h6 class="text-center mr-3">總金額：</h6>
     <h1 class="text-center sum">0</h1>
   </div>
   <table class="table table-striped">
