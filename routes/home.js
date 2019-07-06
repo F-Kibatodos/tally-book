@@ -38,7 +38,8 @@ router.get('/', authenticated, (req, res) => {
         month,
         newDisplayMonth: newDisplayMonth || '月份(全部)',
         displayKeyword: keyword || '分類(全部)',
-        newDisplaySort: newDisplaySort
+        newDisplaySort: newDisplaySort,
+        success: req.flash('success')
       })
     })
 })

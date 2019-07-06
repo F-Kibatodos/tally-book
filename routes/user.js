@@ -8,7 +8,8 @@ const { check, validationResult } = require('express-validator')
 // 登入頁面
 router.get('/login', (req, res) => {
   res.render('login', {
-    error: req.flash('error')
+    error: req.flash('error'),
+    success: req.flash('success')
   })
 })
 
@@ -18,7 +19,8 @@ router.post('/login', (req, res, next) => {
     // 使用 passport 認證
     successRedirect: '/',
     failureRedirect: '/user/login',
-    failureFlash: true
+    failureFlash: true,
+    successFlash: `歡迎回來，這次又噴多少`
   })(req, res, next)
 })
 
