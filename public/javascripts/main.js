@@ -2,6 +2,8 @@ const categoryEls = document.querySelectorAll('.category')
 const sum = document.querySelector('.sum')
 const costs = document.querySelectorAll('#cost')
 let total = 0 // 總金額
+const changePassword = document.querySelector('.change-password')
+const hidden = document.querySelector('.hidden')
 
 for (let el of categoryEls) {
   switch (el.innerHTML) {

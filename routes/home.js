@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
 const { authenticated } = require('../config/auth')
-const displayMonthMenu = require('../displayMonth')
-const displaySortMenu = require('../sort')
+const displayMonthMenu = require('../helper/displayMonth')
+const displaySortMenu = require('../helper/sort')
 
 router.get('/', authenticated, (req, res) => {
   // 排序
@@ -41,7 +41,8 @@ router.get('/', authenticated, (req, res) => {
         newDisplayMonth: newDisplayMonth || '月份(全部)',
         displayKeyword: keyword || '分類(全部)',
         newDisplaySort: newDisplaySort,
-        success: req.flash('success')
+        success: req.flash('success'),
+        script: 'main.js'
       })
     })
 })

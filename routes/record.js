@@ -3,7 +3,7 @@ const router = express.Router()
 const Record = require('../models/record')
 const { authenticated } = require('../config/auth')
 const { check, validationResult } = require('express-validator')
-const inputvalidate = require('../recordValidator')
+const inputvalidate = require('../helper/recordValidator')
 
 // 新增頁面
 router.get('/new', authenticated, (req, res) => {
@@ -51,7 +51,7 @@ router.get('/:id/edit', authenticated, (req, res) => {
 })
 
 // 編輯功能
-router.put('/:id/edit', inputvalidate(), authenticated, (req, res) => {
+router.put('/:id', inputvalidate(), authenticated, (req, res) => {
   const errors = validationResult(req)
   let fillErrors = []
   if (!errors.isEmpty()) {
@@ -87,7 +87,7 @@ router.put('/:id/edit', inputvalidate(), authenticated, (req, res) => {
 })
 
 // 刪除
-router.delete('/:id/delete', authenticated, (req, res) => {
+router.delete('/:id', authenticated, (req, res) => {
   Record.findOne(
     { _id: req.params.id, userId: req.user._id },
     (err, record) => {

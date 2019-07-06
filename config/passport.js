@@ -17,7 +17,7 @@ module.exports = passport => {
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err
           if (isMatch) {
-            return done(null, user, { message: '歡迎回來' })
+            return done(null, user)
           } else {
             return done(null, false, {
               message: '信箱或密碼不正確'

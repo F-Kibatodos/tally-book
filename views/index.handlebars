@@ -1,4 +1,4 @@
-<div class="container my-3">
+<div class="container my-4">
   {{> indexMsg}}
   <div class="row">
     <div class="d-flex justify-content-center mx-auto">
@@ -105,7 +105,7 @@
         <td id="cost">{{this.amount}}</td>
         <td class="d-flex justify-content-end">
           <a href="/record/{{this.id}}/edit" class="btn btn-info mr-3">修改</a>
-          <form action="/record/{{this.id}}/delete?_method=DELETE" method="POST" style="display: inline-block;"
+          <form action="/record/{{this.id}}?_method=DELETE" method="POST" style="display: inline-block;"
             onsubmit="return confirm('確定喔，不要吃自己的帳喔')">
             <button type="submit" class="btn btn-danger">刪除</button>
           </form>
