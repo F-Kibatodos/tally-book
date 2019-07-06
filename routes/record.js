@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
-const moment = require('moment')
 const { authenticated } = require('../config/auth')
 const { check, validationResult } = require('express-validator')
 const inputvalidate = require('../validator')
@@ -21,7 +20,6 @@ router.post('/new', inputvalidate(), authenticated, (req, res) => {
     }
   }
   const { name, date, category, amount } = req.body
-  const formattedDate = moment(date).format('YYYY / MM / DD')
   if (fillErrors.length > 0) {
     res.render('new', {
       fillErrors
@@ -62,7 +60,6 @@ router.put('/:id/edit', inputvalidate(), authenticated, (req, res) => {
     }
   }
   const { name, date, category, amount } = req.body
-  const formattedDate = moment(date).format('YYYY / MM / DD')
   if (fillErrors.length > 0) {
     res.render('edit', {
       fillErrors,

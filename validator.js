@@ -4,7 +4,7 @@ module.exports = () => {
   return [
     check('name')
       .exists()
-      .custom(value => /^\S+(?: \S+)*$/.test(value))
+      .custom(value => /.*\S.*/.test(value))
       .withMessage('名稱格式錯誤'),
     check('date')
       .exists()
