@@ -59,23 +59,23 @@ $ ./mongod --dbpath /Users/[使用者名稱]/專案資料夾位址/mongodb-data
 接著開啟新的終端機輸入
 
 ```
-cd 資料夾名稱 //移動到指定資料夾
+cd 資料夾名稱 // 移動到指定資料夾
 ```
 
 或輸入
 
 ```
-mkdir 資料夾名稱 //創建新資料夾
+mkdir 資料夾名稱 // 創建新資料夾
 ```
 
 並在此資料夾中依序輸入
 
 ```
-git clone  //將此專案下載到資料夾
-cd  //移動到專案資料夾
-npm install //下載相關npm套件
-npm run seeder //執行種子檔案
-npm run dev //執行專案
+git clone https://github.com/F-Kibatodos/tally-book.git  // 將此專案下載到資料夾
+cd tally-book                                            // 移動到專案資料夾
+npm install                                              // 下載相關npm套件
+npm run seeder                                           // 執行種子檔案
+npm run dev                                              // 執行專案
 ```
 
 接著就可以在網頁輸入http://localhost:3000見到頁面
@@ -108,20 +108,6 @@ GOOGLE_CALLBACK=http://localhost:3000/auth/google/callback
   email: misae@nohara.com 密碼: 12345678
 - 密碼經過雜湊成為亂數，使用者請務必記得
 - 註冊時檢查使用者名稱及密碼格式
-
-## 使用情形
-
-- 登入
-  ![](https://i.imgur.com/1CpxxwU.gif)
-
-- 新增
-  ![](https://i.imgur.com/Bxyvzn4.gif)
-
-- 修改、刪除
-  ![](https://i.imgur.com/SPyWi1x.gif)
-
-- 分類、排序
-  ![](https://i.imgur.com/qhfhFd2.gif)
 
 ### 作者
 
