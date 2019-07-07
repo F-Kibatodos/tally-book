@@ -59,23 +59,23 @@ $ ./mongod --dbpath /Users/[使用者名稱]/專案資料夾位址/mongodb-data
 接著開啟新的終端機輸入
 
 ```
-cd 資料夾名稱 //移動到指定資料夾
+cd 資料夾名稱 // 移動到指定資料夾
 ```
 
 或輸入
 
 ```
-mkdir 資料夾名稱 //創建新資料夾
+mkdir 資料夾名稱 // 創建新資料夾
 ```
 
 並在此資料夾中依序輸入
 
 ```
-git clone  //將此專案下載到資料夾
-cd  //移動到專案資料夾
-npm install //下載相關npm套件
-npm run seeder //執行種子檔案
-npm run dev //執行專案
+git clone https://github.com/F-Kibatodos/tally-book.git  // 將此專案下載到資料夾
+cd tally-book                                            // 移動到專案資料夾
+npm install                                              // 下載相關npm套件
+npm run seeder                                           // 執行種子檔案
+npm run dev                                              // 執行專案
 ```
 
 接著就可以在網頁輸入http://localhost:3000見到頁面
