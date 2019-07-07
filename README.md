@@ -115,7 +115,7 @@ GOOGLE_CALLBACK=http://localhost:3000/auth/google/callback
 ![](https://i.imgur.com/1CpxxwU.gif)
 
 新增
-![](https://i.imgur.com/1CpxxwU.gif)
+![](https://i.imgur.com/Bxyvzn4.gif)
 
 修改、刪除
 ![](https://i.imgur.com/SPyWi1x.gif)
