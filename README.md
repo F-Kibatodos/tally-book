@@ -103,11 +103,15 @@ GOOGLE_CALLBACK=http://localhost:3000/auth/google/callback
 - 可依照日期、花費做排序
 - 使用者須註冊並登入才可以使用，也可以使用 Facebook 或 Google 登入
 - 使用者可以更改自己的名稱和密碼
-- 可以用種子檔案作成的兩位使用者先登入
-  依序為 email: hiroshi@nohara.com 密碼: 12345678
-  email: misae@nohara.com 密碼: 12345678
+- 可以用種子檔案作成的兩位使用者先登入，依序為
+  - email: hiroshi@nohara.com 密碼: 12345678
+  - email: misae@nohara.com 密碼: 12345678
 - 密碼經過雜湊成為亂數，使用者請務必記得
 - 註冊時檢查使用者名稱及密碼格式
+
+## 首頁
+
+![](https://i.imgur.com/wued5Tx.png)
 
 ### 作者
 
