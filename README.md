@@ -94,6 +94,13 @@ GOOGLE_SECRET='個人用戶端的google開發專案密碼'
 GOOGLE_CALLBACK=http://localhost:3000/auth/google/callback
 ```
 
+## Heroku
+
+本程式已在 Heroku[部署](https://boiling-ridge-88039.herokuapp.com/)
+
+- 信箱: hiroshi@nohara.com
+- 密碼 Aa12345678
+
 ## 功能說明
 
 - 新增、修改、刪除一筆支出
@@ -109,9 +116,22 @@ GOOGLE_CALLBACK=http://localhost:3000/auth/google/callback
 - 密碼經過雜湊成為亂數，使用者請務必記得
 - 註冊時檢查使用者名稱及密碼格式
 
-## 首頁
+## 使用情形
 
-![](https://i.imgur.com/wued5Tx.png)
+- 首頁
+  ![](https://i.imgur.com/wued5Tx.png)
+
+- 登入
+  ![](https://github.com/F-Kibatodos/tally-book/blob/master/%E6%94%AF%E5%87%BA/%E7%99%BB%E5%85%A5.gif)
+
+- 新增
+  ![](https://github.com/F-Kibatodos/tally-book/blob/master/%E6%94%AF%E5%87%BA/%E6%96%B0%E5%A2%9E.gif)
+
+- 修改、刪除
+  ![](https://github.com/F-Kibatodos/tally-book/blob/master/%E6%94%AF%E5%87%BA/%E4%BF%AE%E6%94%B9%E5%88%AA%E9%99%A4.gif)
+
+- 篩選、排序
+  ![](https://github.com/F-Kibatodos/tally-book/blob/master/%E6%94%AF%E5%87%BA/%E7%AF%A9%E9%81%B8%E6%8E%92%E5%BA%8F.gif)
 
 ### 作者
 
