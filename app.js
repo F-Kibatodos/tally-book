@@ -12,7 +12,7 @@ const passport = require('passport')
 const flash = require('connect-flash')
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/book', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/book', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
@@ -69,4 +69,4 @@ app.use('/user', require('./routes/user'))
 
 app.use('/auth', require('./routes/auths'))
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)

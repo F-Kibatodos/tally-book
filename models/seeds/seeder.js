@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/book', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/book', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
